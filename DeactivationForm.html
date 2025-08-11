@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account Deactivation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff0000;
+            text-align: center;
+            padding-top: 60px;
+            color: white;
+        }
+
+        form {
+            display: inline-block;
+            padding: 30px;
+            background-color: #ffffff;
+            width: 400px;
+            text-align: left;
+        }
+
+        label {
+            color: #000000;
+            font-weight: bold;
+            text-align: justify;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #ff4d4d;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Deactivate Your Social Media Account</h2>
+    <p>Please fill the details below to proceed with account deactivation.</p>
+
+    <form>
+        <label for="username">Username / Email</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="reason">Reason for Leaving</label>
+        <select id="reason" name="reason" required>
+            <option value="">--Select Reason--</option>
+            <option>Too much time spent on the app</option>
+            <option>Privacy concerns</option>
+            <option>Not finding it useful</option>
+            <option>Switching to another platform</option>
+            <option>Too many ads</option>
+            <option>Negative community experience</option>
+            <option>Security concerns</option>
+            <option>Poor customer support</option>
+            <option>Slow performance</option>
+            <option>Friends are no longer using it</option>
+            <option>Too many spam messages</option>
+            <option>Other</option>
+
+        </select>
+
+        <label for="feedback">Any Feedback (Optional)</label>
+        <textarea id="feedback" name="feedback" rows="4" placeholder="Your feedback..."></textarea>
+
+        <input type="checkbox" style="width:15px; height:20px; accent-color:rgb(255, 0, 0);">
+        <label for="confirm">I understand that my account will be permanently deleted</label>
+
+        <input type="submit" value="Deactivate Account">
+
+    </form>
+
+</body>
+
+</html>

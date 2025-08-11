@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+        }
+        form {
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 1.3rem;
+            padding: 50px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            font-weight: bold;
+            font-size: 20px;
+            padding: 5px;
+            width: 250px;
+            margin-top: 5px;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: black;
+            color: white;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        label {
+            color: rgba(0, 0, 0, 0.511);
+        }
+    </style>
+</head>
+<body>
+
+    <form onsubmit="window.location.href='https://youtu.be/tVzUXW6siu0?si=uGCDjs3RV8ZoYImf'; return false;">
+        <h1>Login Form</h1>
+        
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="reset" value="Clear"><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+</html>

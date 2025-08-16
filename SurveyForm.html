@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Voter Survey - Andhra Pradesh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            width: 70%;
+            margin: auto;
+            border: 1px solid black;
+            padding: 15px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: darkblue;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Election Voter Information Survey - Andhra Pradesh</h2>
+
+    <form action='https://ceoandhra.nic.in/ceoap_new/ceo/General%20Elections-2024.html'; return false;>
+        <label>Full Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Father's / Husband's Name:</label>
+        <input type="text" name="guardian" required>
+
+        <label>Age:</label>
+        <input type="number" name="age" min="18" required>
+
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="">--Select--</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Voter ID Number:</label>
+        <input type="text" name="voterid" required>
+
+        <label>District:</label>
+        <select name="district" required>
+            <option value="">-- Select District --</option>
+            <option>Alluri Sitharama Raju</option>
+            <option>Anakapalli</option>
+            <option>Anantapur</option>
+            <option>Bapatla</option>
+            <option>Chittoor</option>
+            <option>East Godavari</option>
+            <option>Eluru</option>
+            <option>Guntur</option>
+            <option>Kakinada</option>
+            <option>Kona Seema</option>
+            <option>Krishna</option>
+            <option>Kurnool</option>
+            <option>Nandyal</option>
+            <option>Nellore (SPSR)</option>
+            <option>Palnadu</option>
+            <option>Parvathipuram Manyam</option>
+            <option>Prakasam</option>
+            <option>Srikakulam</option>
+            <option>Tirupati</option>
+            <option>Visakhapatnam</option>
+            <option>Vizianagaram</option>
+            <option>West Godavari</option>
+            <option>YSR Kadapa</option>
+        </select>
+
+        <label>Constituency:</label>
+        <input type="text" name="constituency" required>
+
+        <label>Residential Address:</label>
+        <textarea name="address"></textarea>
+
+        <label>Contact Number:</label>
+        <input type="tel" name="contact" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

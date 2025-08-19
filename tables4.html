@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Management</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1a1c40, #0d0e26);
+      color: white;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      padding: 15px 30px;
+      color: #b3b3b3;
+    }
+    .breadcrumb span {
+      color: #5d9cec;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: 700;
+      padding: 0 30px 15px;
+    }
+
+    .card {
+      background: #1b1f3a;
+      margin: 0 30px;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .btn-create {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-box {
+      background: #0d0e26;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    th {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    tr {
+      border-bottom: 1px solid #2c2f54;
+    }
+
+    .title-link {
+      color: #5d9cec;
+      text-decoration: none;
+    }
+
+    .price {
+      color: #28a745;
+    }
+
+    .rating {
+      color: #f0ad4e;
+      font-weight: bold;
+    }
+
+    .btn-edit {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      margin-right: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-delete {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 60px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="breadcrumb">
+    YOU ARE HERE > <span>App > Ecommerce > Management</span>
+  </div>
+
+  <div class="header">Product - <b>Management</b></div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>List of Products</h3>
+      <div>
+        <button class="btn-create">Create Product</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>IMAGE</th>
+        <th>TITLE</th>
+        <th>SUBTITLE</th>
+        <th>PRICE($)</th>
+        <th>RATING</th>
+        <th>API</th>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="shoe"></td>
+        <td><a href="#" class="title-link">Trainers</a></td>
+        <td>Trainers in White</td>
+        <td class="price">76</td>
+        <td class="rating">4.6 ★</td>
+        <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td><img src="https://www.campusshoes.com/cdn/shop/files/LEVEL_LEVEL_WHT-L.GRY_01.webp?v=1755509533" alt="shoe"></td>
+        <td><a href="#" class="title-link">Boots</a></td>
+        <td>Trainers in Blue</td>
+        <td class="price">45</td>
+        <td class="rating">4.6 ★</td>
+        <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdEStK82kF2APbHHZQSFQV4qNN59COz4AFrg&s" alt="shoe"></td>
+        <td><a href="#" class="title-link">Flat sandals</a></td>
+        <td>Trainers in White</td>
+        <td class="price">55</td>
+        <td class="rating">4.6 ★</td>
+        <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+      </tr>
+
+    </table>
+  </div>
+
+</body>
+</html>

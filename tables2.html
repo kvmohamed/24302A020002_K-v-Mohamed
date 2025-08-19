@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<title>Pricing Table</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    text-align: center;
+    margin: 40px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 15px 25px;
+    font-size: 14px;
+  }
+  th {
+    background: linear-gradient(#7ccf42, #4faa1f);
+    color: white;
+    font-size: 16px;
+    padding: 20px;
+  }
+  td:first-child {
+    background: linear-gradient(#a7df73, #7ccf42);
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+  }
+  td {
+    background: #fff;
+  }
+  .check {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  tfoot td {
+    background: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    color: #4faa1f;
+  }
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Smart Starter</th>
+    <th>Smart Medium</th>
+    <th>Smart Business</th>
+    <th>Smart Deluxe</th>
+  </tr>
+  <tr>
+    <td>Storage Space</td>
+    <td>512 MB</td>
+    <td>1 GB</td>
+    <td>2 GB</td>
+    <td>4 GB</td>
+  </tr>
+  <tr>
+    <td>Bandwidth</td>
+    <td>50 GB</td>
+    <td>100 GB</td>
+    <td>150 GB</td>
+    <td>Unlimited</td>
+  </tr>
+  <tr>
+    <td>MySQL Databases</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+    <td>Unlimited</td>
+  </tr>
+  <tr>
+    <td>Setup</td>
+    <td>19.90 $</td>
+    <td>12.90 $</td>
+    <td>free</td>
+    <td>free</td>
+  </tr>
+  <tr>
+    <td>PHP 5</td>
+    <td class="check">✔</td>
+    <td class="check">✔</td>
+    <td class="check">✔</td>
+    <td class="check">✔</td>
+  </tr>
+  <tr>
+    <td>Ruby on Rails</td>
+    <td></td>
+    <td class="check">✔</td>
+    <td class="check">✔</td>
+    <td class="check">✔</td>
+  </tr>
+  <tfoot>
+    <tr>
+      <td>Price per month</td>
+      <td>$ 2.90</td>
+      <td>$ 5.90</td>
+      <td>$ 9.90</td>
+      <td>$ 14.90</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>

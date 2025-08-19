@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #555;
+      margin: 0;
+      padding: 40px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 15px;
+    }
+    th {
+      background: #f4f4f4;
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .plan {
+      font-size: 22px;
+      color: #fff;
+      padding: 20px 0;
+    }
+    .starter { background: #3cb0fd; }
+    .econo { background: #2a92d8; }
+    .standard { background: #1d72b8; position: relative; }
+    .professional { background: #154a91; position: relative; }
+    .price {
+      font-size: 30px;
+      margin: 10px 0;
+    }
+    .per {
+      font-size: 14px;
+      color: #eee;
+    }
+    .hot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: gold;
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 8px;
+      transform: rotate(45deg);
+      transform-origin: top right;
+    }
+    .signup {
+      background: #f4f4f4;
+      padding: 10px;
+    }
+    .signup button {
+      padding: 8px 20px;
+      border: 1px solid #bbb;
+      background: linear-gradient(#fff, #ddd);
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .signup button:hover {
+      background: linear-gradient(#eee, #ccc);
+    }
+    td {
+      background: #fafafa;
+    }
+    td:nth-child(2n) {
+      background: #fefefe;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>choose your plan</th>
+      <th class="starter">
+        <div class="plan">starter</div>
+        <div class="price">$10</div>
+        <div class="per">per month</div>
+      </th>
+      <th class="econo">
+        <div class="plan">econo</div>
+        <div class="price">$30</div>
+        <div class="per">per month</div>
+      </th>
+      <th class="standard">
+        <div class="hot">HOT</div>
+        <div class="plan">standard</div>
+        <div class="price">$59</div>
+        <div class="per">per month</div>
+      </th>
+      <th class="professional">
+        <div class="hot">HOT</div>
+        <div class="plan">professional</div>
+        <div class="price">$99</div>
+        <div class="per">per month</div>
+      </th>
+    </tr>
+    <tr>
+      <td>Amount of space</td>
+      <td>10GB</td>
+      <td>30GB</td>
+      <td>100GB</td>
+      <td>Unlimited</td>
+    </tr>
+    <tr>
+      <td>Bandwidth per month</td>
+      <td>100GB</td>
+      <td>200GB</td>
+      <td>500GB</td>
+      <td>1000GB</td>
+    </tr>
+    <tr>
+      <td>No. of e-mail accounts</td>
+      <td>1</td>
+      <td>10</td>
+      <td>50</td>
+      <td>Unlimited</td>
+    </tr>
+    <tr>
+      <td>No. of MySql databases</td>
+      <td>1</td>
+      <td>10</td>
+      <td>50</td>
+      <td>Unlimited</td>
+    </tr>
+    <tr>
+      <td>24h support</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Support tickets per mo.</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="signup"><button>sign up!</button></td>
+      <td class="signup"><button>sign up!</button></td>
+      <td class="signup"><button>sign up!</button></td>
+      <td class="signup"><button>sign up!</button></td>
+    </tr>
+  </table>
+</body>
+</html>

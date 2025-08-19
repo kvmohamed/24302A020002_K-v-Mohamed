@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1b1f38;
+      color: #fff;
+    }
+
+    .navbar {
+      background: #15182b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+    }
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00d4ff;
+    }
+    .navbar .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .navbar .profile img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 2px solid #00d4ff;
+    }
+    .navbar .profile .power {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Menu bar */
+    .menu {
+      display: flex;
+      background: #20244a;
+      padding: 12px 25px;
+      gap: 20px;
+    }
+    .menu a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .menu a:hover {
+      color: #00d4ff;
+    }
+
+    /* Dashboard layout */
+    .container {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Table */
+    .table-container {
+      flex: 3;
+      background: #2a2f55;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background: #1f2340;
+      font-weight: 600;
+      color: #00d4ff;
+    }
+    tr:nth-child(even) {
+      background: #24294d;
+    }
+    tr:nth-child(odd) {
+      background: #2a2f55;
+    }
+
+
+    .status {
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .success { background: #28a745; }
+    .warning { background: #ffc107; color: #000; }
+    .danger { background: #dc3545; }
+
+
+    .filter-card {
+      flex: 1;
+      background: #2a2f55;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .filter-card h3 {
+      margin-top: 0;
+      color: #00d4ff;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .filter-group {
+      margin-bottom: 15px;
+    }
+    .filter-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #ccc;
+    }
+    .filter-card input[type="range"] {
+      width: 100%;
+    }
+    .filter-card input[type="checkbox"],
+    .filter-card input[type="radio"] {
+      margin-right: 6px;
+    }
+    .filter-card button {
+      background: #00d4ff;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filter-card button:hover {
+      background: #00a6cc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Product Dashboard</div>
+    <div class="profile">
+      <img src="https://via.placeholder.com/35" alt="User">
+      <div class="power">⏻</div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <a href="#">Dashboard</a>
+    <a href="#">Users</a>
+    <a href="#">Priority</a>
+    <a href="#">Collections</a>
+    <a href="#">Archived</a>
+    <a href="#">Deleted</a>
+    <a href="#">Trends</a>
+    <a href="#">Tasks</a>
+    <a href="#">Filters</a>
+    <a href="#">Stats</a>
+  </div>
+
+  <div class="container">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Revenue</th>
+            <th>VAT</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Evolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>ABC Corp</td>
+            <td>+1 234 567</td>
+            <td>New York, USA</td>
+            <td>$120,000</td>
+            <td>$12,000</td>
+            <td>$132,000</td>
+            <td><span class="status success">Paid</span></td>
+            <td>⬆ 15%</td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>XYZ Ltd</td>
+            <td>+44 789 654</td>
+            <td>London, UK</td>
+            <td>$80,000</td>
+            <td>$8,000</td>
+            <td>$88,000</td>
+            <td><span class="status warning">Pending</span></td>
+            <td>⬇ 5%</td>
+          </tr>
+          <tr>
+            <td>Mike Ross</td>
+            <td>Alpha Inc</td>
+            <td>+91 998877</td>
+            <td>Mumbai, India</td>
+            <td>$50,000</td>
+            <td>$5,000</td>
+            <td>$55,000</td>
+            <td><span class="status danger">Overdue</span></td>
+            <td>⬆ 3%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="filter-card">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label>Revenue Range</label>
+        <input type="range" min="0" max="200000" value="100000">
+      </div>
+      <div class="filter-group">
+        <label>Status</label>
+        <input type="radio" name="status"> Paid <br>
+        <input type="radio" name="status"> Pending <br>
+        <input type="radio" name="status"> Overdue
+      </div>
+      <div class="filter-group">
+        <label>Options</label>
+        <input type="checkbox"> Show Archived <br>
+        <input type="checkbox"> Include Deleted
+      </div>
+      <button>Apply Filters</button>
+    </div>
+  </div>
+
+</body>
+</html>

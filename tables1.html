@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pricing Table</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f4f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .pricing-table {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin: 0;
+      color: #333;
+    }
+    .card p {
+      color: #777;
+      margin: 5px 0 15px;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    .price span {
+      font-size: 14px;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .features li {
+      margin: 8px 0;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-purple { background: #6c63ff; }
+    .btn-purple:hover { background: #574bdb; }
+
+    .btn-orange { background: #ff6f47; }
+    .btn-orange:hover { background: #e85b36; }
+
+    .btn-dark { background: #4b3f72; }
+    .btn-dark:hover { background: #372c56; }
+
+  </style>
+</head>
+<body>
+
+  <div class="pricing-table">
+
+    <div class="card">
+      <h3>Personal</h3>
+      <p>We Think Ahead</p>
+      <div class="price" style="color:#6c63ff;">$29 <span>/month</span></div>
+      <ul class="features">
+        <li>Mobile-Optimized</li>
+        <li>Free Custom Domain</li>
+        <li>Best Web Hosting</li>
+        <li>Outstanding Support Team</li>
+        <li>Our Happy Customers</li>
+      </ul>
+      <a href="#" class="btn btn-purple">READ MORE</a>
+    </div>
+
+    <div class="card">
+      <h3>Business</h3>
+      <p>Special Offer</p>
+      <div class="price" style="color:#ff6f47;">$38 <span>/month</span></div>
+      <ul class="features">
+        <li>Mobile-Optimized</li>
+        <li>Free Custom Domain</li>
+        <li>Best Web Hosting</li>
+        <li>Outstanding Support Team</li>
+        <li>Our Happy Customers</li>
+      </ul>
+      <a href="#" class="btn btn-orange">READ MORE</a>
+    </div>
+    <div class="card">
+      <h3>Enterprise</h3>
+      <p>Our Best Solution</p>
+      <div class="price" style="color:#6c63ff;">$75 <span>/month</span></div>
+      <ul class="features">
+        <li>Mobile-Optimized</li>
+        <li>Free Custom Domain</li>
+        <li>Best Web Hosting</li>
+        <li>Outstanding Support Team</li>
+        <li>Our Happy Customers</li>
+      </ul>
+      <a href="#" class="btn btn-dark">READ MORE</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

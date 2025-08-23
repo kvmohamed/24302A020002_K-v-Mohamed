@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas </title>
+</head>
+<body>
+
+<h2>Canvas Drawing Example</h2>
+
+<canvas id="myCanvas" width="500" height="350" style="border:1px solid black;"></canvas>
+
+<script>
+  let c = document.getElementById("myCanvas");
+  let ctx = c.getContext("2d");
+
+  // Sky
+  ctx.fillStyle = "lightblue";
+  ctx.fillRect(0, 0, 500, 200);
+
+  // Ground
+  ctx.fillStyle = "lightgreen";
+  ctx.fillRect(0, 200, 500, 150);
+
+  // Sun
+  ctx.beginPath();
+  ctx.arc(70, 70, 40, 0, 2 * Math.PI);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+
+  // House body
+  ctx.fillStyle = "burlywood";
+  ctx.fillRect(200, 150, 120, 100);
+
+  // Roof (triangle)
+  ctx.beginPath();
+  ctx.moveTo(190, 150);
+  ctx.lineTo(260, 100);
+  ctx.lineTo(330, 150);
+  ctx.closePath();
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
+  // Door
+  ctx.fillStyle = "saddlebrown";
+  ctx.fillRect(245, 190, 30, 60);
+
+  // Window
+  ctx.fillStyle = "white";
+  ctx.fillRect(215, 170, 25, 25);
+  ctx.strokeRect(215, 170, 25, 25);
+
+  // Text
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("My Canvas Scene", 170, 320);
+</script>
+
+</body>
+</html>

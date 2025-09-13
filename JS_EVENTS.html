@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book Tracker - JS Events & Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f3f4f6;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #1f4b78;
+    }
+    .container {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 6px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin: 10px 6px 0 0;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #1f4b78;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover { background: #13324c; }
+    #bookList {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef3f8;
+      border-radius: 8px;
+      font-size: 18px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Book Tracker</h1>
+  <div class="container">
+    <label for="titleInput">Book Title</label>
+    <input type="text" id="titleInput" placeholder="Enter book title">
+
+    <label for="authorInput">Author</label>
+    <input type="text" id="authorInput" placeholder="Enter author's name">
+
+    <label for="genreSelect">Genre</label>
+    <select id="genreSelect">
+      <option value="">Select genre</option>
+      <option>Fiction</option>
+      <option>Non-Fiction</option>
+      <option>Science</option>
+      <option>Technology</option>
+      <option>History</option>
+    </select>
+
+    <button id="addBtn">Add Book</button>
+    <button id="sortBtn">Sort by Title</button>
+    <button id="clearBtn">Clear List</button>
+
+    <div id="bookList"></div>
+  </div>
+
+  <script>
+    const titleInput = document.getElementById('titleInput')
+    const authorInput = document.getElementById('authorInput')
+    const genreSelect = document.getElementById('genreSelect')
+    const addBtn = document.getElementById('addBtn')
+    const sortBtn = document.getElementById('sortBtn')
+    const clearBtn = document.getElementById('clearBtn')
+    const bookList = document.getElementById('bookList')
+
+    let books = []
+
+    addBtn.addEventListener('click', () => {
+      const title = titleInput.value.trim()
+      const author = authorInput.value.trim()
+      const genre = genreSelect.value
+      if (title && author && genre) {
+        books.push({title, author, genre})
+        displayBooks()
+        titleInput.value = ""
+        authorInput.value = ""
+        genreSelect.value = ""
+      } else {
+        alert("Please fill all fields")
+      }
+    })
+
+    sortBtn.addEventListener('click', () => {
+      books.sort((a, b) => a.title.localeCompare(b.title))
+      displayBooks()
+    })
+
+    clearBtn.addEventListener('dblclick', () => {
+      books = []
+      displayBooks()
+    })
+
+    titleInput.addEventListener('focus', () => {
+      titleInput.style.background = "#fff7e6"
+    })
+    titleInput.addEventListener('blur', () => {
+      titleInput.style.background = "#fff"
+    })
+
+    function displayBooks() {
+      if (books.length === 0) {
+        bookList.textContent = "No books added yet"
+      } else {
+        bookList.innerHTML = ""
+        books.forEach((book, i) => {
+          const p = document.createElement('p')
+          p.textContent = `${i+1}. ${book.title} by ${book.author} [${book.genre}]`
+          p.addEventListener('click', () => {
+            alert("Selected: " + book.title)
+          })
+          bookList.appendChild(p)
+        })
+      }
+    }
+  </script>
+</body>
+</html>

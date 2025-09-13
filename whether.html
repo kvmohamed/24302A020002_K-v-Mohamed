@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tirupati Weather Dashboard</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #1f4b78, #0ea5a4);
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+      min-height: 100vh;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .forecast {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .forecast h2 {
+      margin: 0 0 15px;
+      color: #1f4b78;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+    .day-card {
+      background: #f7faff;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .day-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    .day-card h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #1f4b78;
+    }
+    .day-card p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+    .details {
+      background: #000000;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      color: white;
+    }
+    .details h2 {
+      margin-top: 0;
+      color: #0ea5a4;
+    }
+    .details p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+    @media (max-width: 800px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+      .details {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="forecast">
+      <h2>Tirupati Weekly Forecast</h2>
+      <div class="grid">
+        <div class="day-card" data-day="sat">
+          <h3>Sat (Sep 1)</h3>
+          <p>🌩️ Thunderstorms</p>
+          <p>30°C / 24°C</p>
+        </div>
+        <div class="day-card" data-day="sun">
+          <h3>Sun (Sep 2)</h3>
+          <p>🌧️ Showers</p>
+          <p>31°C / 24°C</p>
+        </div>
+        <div class="day-card" data-day="mon">
+          <h3>Mon (Sep 3)</h3>
+          <p>🌩️ Thunderstorms</p>
+          <p>32°C / 23°C</p>
+        </div>
+        <div class="day-card" data-day="tue">
+          <h3>Tue (Sep 4)</h3>
+          <p>☁️ Cloudy</p>
+          <p>31°C / 24°C</p>
+        </div>
+        <div class="day-card" data-day="wed">
+          <h3>Wed (Sep 5)</h3>
+          <p>🌧️ Rain</p>
+          <p>30°C / 23°C</p>
+        </div>
+        <div class="day-card" data-day="thu">
+          <h3>Thu (Sep 6)</h3>
+          <p>⛈️ Storms</p>
+          <p>30°C / 24°C</p>
+        </div>
+        <div class="day-card" data-day="fri">
+          <h3>Fri (Sep 7)</h3>
+          <p>🌩️ Heavy Storms</p>
+          <p>29°C / 23°C</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="details" id="detailsBox">
+      <h2>Click a Day</h2>
+      <p>Select a day from the forecast to see detailed weather info.</p>
+    </div>
+  </div>
+
+  <script>
+    const detailsData = {
+      sat: { condition: "Scattered Thunderstorms", wind: "12 km/h", humidity: "78%", uv: "High", desc: "Thunderstorms expected throughout the afternoon." },
+      sun: { condition: "Scattered Showers", wind: "10 km/h", humidity: "72%", uv: "Moderate", desc: "Light showers mainly in the morning." },
+      mon: { condition: "Thunderstorms", wind: "15 km/h", humidity: "80%", uv: "High", desc: "Thunderstorms likely with heavy rainfall." },
+      tue: { condition: "Cloudy", wind: "8 km/h", humidity: "68%", uv: "Low", desc: "Mostly cloudy with possible late storms." },
+      wed: { condition: "Evening Rain", wind: "11 km/h", humidity: "70%", uv: "Moderate", desc: "Rain expected in the evening with cooler weather." },
+      thu: { condition: "Isolated Storms", wind: "14 km/h", humidity: "75%", uv: "Moderate", desc: "Partly cloudy with isolated storms." },
+      fri: { condition: "Heavy Thunderstorms", wind: "18 km/h", humidity: "82%", uv: "High", desc: "Heavy thunderstorms likely throughout the day." }
+    }
+
+    const cards = document.querySelectorAll(".day-card")
+    const detailsBox = document.getElementById("detailsBox")
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const key = card.dataset.day
+        const data = detailsData[key]
+        detailsBox.innerHTML = `
+          <h2>${card.querySelector("h3").textContent}</h2>
+          <p><strong>Condition:</strong> ${data.condition}</p>
+          <p><strong>Wind:</strong> ${data.wind}</p>
+          <p><strong>Humidity:</strong> ${data.humidity}</p>
+          <p><strong>UV Index:</strong> ${data.uv}</p>
+          <p><strong>Details:</strong> ${data.desc}</p>
+        `
+      })
+    })
+  </script>
+</body>
+</html>

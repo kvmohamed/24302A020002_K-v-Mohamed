@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery Events & Methods Demo</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: linear-gradient(135deg, #1f4b78, #161616);
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    button {
+      margin: 10px 6px 0 0;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #1f4b78;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #0d2f50; }
+    button:active { transform: scale(0.96); }
+    #box {
+      margin-top: 20px;
+      height: 140px;
+      background: #000000;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    input {
+      padding: 12px;
+      margin-top: 16px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    #output {
+      margin-top: 18px;
+      padding: 12px;
+      background: #eef6f9;
+      border-radius: 8px;
+      min-height: 40px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>jQuery Events & Methods</h1>
+  <div class="container">
+    <button id="hideBtn">Hide Box</button>
+    <button id="showBtn">Show Box</button>
+    <button id="toggleBtn">Toggle Box</button>
+    <div id="box">Hover or Click Me</div>
+    <input type="text" id="textInput" placeholder="Type something...">
+    <div id="output">Your text will appear here</div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#hideBtn").click(function(){
+        $("#box").hide("slow")
+      })
+      $("#showBtn").click(function(){
+        $("#box").show("slow")
+      })
+      $("#toggleBtn").click(function(){
+        $("#box").toggle("slow")
+      })
+      $("#box").hover(
+        function(){ $(this).css("opacity","0.7") },
+        function(){ $(this).css("opacity","1") }
+      )
+      $("#textInput").keyup(function(){
+        let value = $(this).val()
+        $("#output").text("You typed: " + value)
+      })
+      $("#box").click(function(){
+        $("#output").append("<p>Box clicked!</p>")
+      })
+    })
+  </script>
+</body>
+</html>

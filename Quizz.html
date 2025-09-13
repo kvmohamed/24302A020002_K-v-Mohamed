@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Technologies Quiz</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1f4b78, #0ea5a4);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .quiz-container {
+      max-width: 800px;
+      width: 100%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    h1 {
+      color: #1f4b78;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .progress {
+      width: 100%;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+      height: 16px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #1f4b78, #0ea5a4);
+      transition: width 0.3s ease;
+    }
+    .question {
+      font-size: 20px;
+      margin: 20px 0;
+      font-weight: 500;
+      color: #0d2f50;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .options button {
+      padding: 12px;
+      border: 2px solid #1f4b78;
+      border-radius: 10px;
+      background: #fff;
+      color: #1f4b78;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .options button:hover {
+      background: #1f4b78;
+      color: #fff;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6b6b;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+    }
+    #result {
+      font-size: 22px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0ea51b;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Web Technologies Quiz</h1>
+    <p class="subtitle">Test your knowledge of HTML, CSS, JavaScript, HTTP & Web Development concepts.</p>
+    
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+    <div id="quizBox">
+      <div class="question" id="questionText"></div>
+      <div class="options" id="optionsBox"></div>
+      <button id="nextBtn">Next</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {question:"Which HTML tag is used to define the largest heading?", options:["<h1>","<heading>","<h6>","<title>"], answer:"<h1>"},
+      {question:"What does CSS stand for?", options:["Creative Style Sheets","Cascading Style Sheets","Computer Style Sheets","Colorful Style Sheets"], answer:"Cascading Style Sheets"},
+      {question:"Which attribute is used in HTML to provide a unique identifier?", options:["class","id","style","name"], answer:"id"},
+      {question:"Which property is used in CSS to change text color?", options:["color","font-color","text-color","background"], answer:"color"},
+      {question:"Which HTML tag is used to link JavaScript code?", options:["<js>","<link>","<script>","<code>"], answer:"<script>"},
+      {question:"Which HTTP method is idempotent?", options:["GET","POST","PATCH","CONNECT"], answer:"GET"},
+      {question:"Which CSS property controls text size?", options:["text-style","font-style","font-size","text-size"], answer:"font-size"},
+      {question:"Which symbol is used for comments in JavaScript?", options:["//","<!-- -->","#","**"], answer:"//"},
+      {question:"Which HTML element is used to embed an image?", options:["<picture>","<src>","<img>","<image>"], answer:"<img>"},
+      {question:"What is the default position property in CSS?", options:["absolute","relative","static","fixed"], answer:"static"},
+      {question:"Which company developed JavaScript?", options:["Microsoft","Sun Microsystems","Netscape","Oracle"], answer:"Netscape"},
+      {question:"Which HTTP status code means 'Not Found'?", options:["200","301","404","500"], answer:"404"},
+      {question:"Which input type in HTML is used for email validation?", options:["text","email","mail","validate"], answer:"email"},
+      {question:"Which CSS property is used to change the background color?", options:["color","bgcolor","background-color","fill"], answer:"background-color"},
+      {question:"In JavaScript, which keyword declares a block-scoped variable?", options:["var","let","const","define"], answer:"let"},
+      {question:"Which protocol is more secure: HTTP or HTTPS?", options:["HTTP","HTTPS","Both","None"], answer:"HTTPS"},
+      {question:"Which tag is used for creating hyperlinks in HTML?", options:["<a>","<link>","<href>","<url>"], answer:"<a>"},
+      {question:"Which CSS layout uses flexible boxes?", options:["Grid","Float","Flexbox","Inline"], answer:"Flexbox"},
+      {question:"What is the correct file extension for JavaScript files?", options:[".java",".js",".script",".jsx"], answer:".js"},
+      {question:"Which API is used in browsers for storing data locally?", options:["LocalStorage","Database","FileAPI","CloudStorage"], answer:"LocalStorage"}
+    ];
+
+    let currentQ = 0, score = 0;
+    const questionText = document.getElementById("questionText");
+    const optionsBox = document.getElementById("optionsBox");
+    const nextBtn = document.getElementById("nextBtn");
+    const resultBox = document.getElementById("result");
+    const progressBar = document.getElementById("progressBar");
+
+    function loadQuestion() {
+      const q = quizData[currentQ];
+      questionText.textContent = `${currentQ+1}. ${q.question}`;
+      optionsBox.innerHTML = "";
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.addEventListener("click", () => checkAnswer(btn, q.answer));
+        optionsBox.appendChild(btn);
+      });
+      updateProgress();
+    }
+
+    function checkAnswer(button, correct) {
+      if (button.textContent === correct) {
+        button.style.background = "#28a745";
+        button.style.color = "#fff";
+        score++;
+      } else {
+        button.style.background = "#e63946";
+        button.style.color = "#fff";
+      }
+      Array.from(optionsBox.children).forEach(btn => btn.disabled = true);
+      nextBtn.style.display = "inline-block";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQ++;
+      if (currentQ < quizData.length) {
+        loadQuestion();
+        nextBtn.style.display = "none";
+      } else {
+        showResult();
+      }
+    });
+
+    function updateProgress() {
+      progressBar.style.width = `${((currentQ+1)/quizData.length)*100}%`;
+    }
+
+    function showResult() {
+      document.getElementById("quizBox").style.display = "none";
+      resultBox.textContent = `✅ You scored ${score} out of ${quizData.length}!`;
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
